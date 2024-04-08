@@ -30,6 +30,9 @@ public class PrimaryController {
     private TextField nameTextField;
 
     @FXML
+    private TextField phoneTextField;
+
+    @FXML
     private TextArea outputTextArea;
 
     @FXML
@@ -119,6 +122,7 @@ public class PrimaryController {
         return key;
     }
 
+
     public boolean registerUser() {
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
                 .setEmail("user222@example.com")
@@ -150,6 +154,7 @@ public class PrimaryController {
         Map<String, Object> data = new HashMap<>();
         data.put("Name", nameTextField.getText());
         data.put("Age", Integer.parseInt(ageTextField.getText()));
+        data.put("Phone Number", phoneTextField.getText());
 
         //asynchronously write data
         ApiFuture<WriteResult> result = docRef.set(data);

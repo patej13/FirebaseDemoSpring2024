@@ -14,14 +14,8 @@ public class FirestoreContext {
 
     public Firestore firebase() {
         try {
-
-            FileInputStream serviceAccount =
-                    new FileInputStream("src/main/resources/aydin/firebasedemospring2024/key.jason");
-
-            FirebaseOptions options = FirebaseOptions.builder()
-                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .build();
-
+            FileInputStream serviceAccount = new FileInputStream("/Users/jay/IdeaProjects/FirebaseDemoSpring2024/src/main/resources/aydin/firebasedemospring2024/key.json");
+            FirebaseOptions options = FirebaseOptions.builder().setCredentials(GoogleCredentials.fromStream(serviceAccount)).build();
             FirebaseApp.initializeApp(options);
 
         } catch (IOException ex) {
@@ -30,6 +24,4 @@ public class FirestoreContext {
         }
         return FirestoreClient.getFirestore();
     }
-
-
 }
